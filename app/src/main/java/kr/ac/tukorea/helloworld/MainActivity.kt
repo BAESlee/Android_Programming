@@ -2,58 +2,61 @@ package kr.ac.tukorea.helloworld
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import org.w3c.dom.Text
 
 class MainActivity : AppCompatActivity() {
-    lateinit var num1 : EditText
-    lateinit var num2 : EditText
-    lateinit var btnAdd : Button
-    lateinit var btnSub : Button
-    lateinit var btnMul : Button
-    lateinit var btnDiv : Button
-    lateinit var textResult : TextView
-    lateinit var number1 : String
-    lateinit var number2 : String
-    var result : Int? = null
+    lateinit var start : CheckBox
+    lateinit var question : TextView
+    lateinit var choice : RadioGroup
+    lateinit var rbDog : RadioButton
+    lateinit var rbCat : RadioButton
+    lateinit var rbRab : RadioButton
+    lateinit var complete : Button
+    lateinit var image : ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        num1 = findViewById<EditText>(R.id.num1)
-        num2 = findViewById<EditText>(R.id.num2)
-        btnAdd = findViewById<Button>(R.id.btnAdd)
-        btnSub = findViewById<Button>(R.id.btnSub)
-        btnMul = findViewById<Button>(R.id.btnMul)
-        btnDiv = findViewById<Button>(R.id.btnDiv)
-        textResult = findViewById<TextView>(R.id.textResult)
+        title="애완동물 사진 보기"
 
-        btnAdd.setOnClickListener {
-            number1 = num1.text.toString()
-            number2 = num2.text.toString()
-            result = Integer.parseInt(number1) + Integer.parseInt(number2)
-            textResult.text = "계산결과: ${result.toString()}"
+        start = findViewById<CheckBox>(R.id.start)
+        choice = findViewById<RadioGroup>(R.id.rg)
+        question = findViewById<TextView>(R.id.text2)
+        rbDog = findViewById<RadioButton>(R.id.rb1)
+        rbCat = findViewById<RadioButton>(R.id.rb2)
+        rbRab = findViewById<RadioButton>(R.id.rb3)
+        complete = findViewById<Button>(R.id.complete)
+        image = findViewById<ImageView>(R.id.image)
+
+        start.setOnCheckedChangeListener{ compoundButton, b ->
+            if(start.isChecked == true){
+                question.visibility = android.view.View.VISIBLE
+                choice.visibility = android.view.View.VISIBLE
+                rbDog.visibility = android.view.View.VISIBLE
+                rbCat.visibility = android.view.View.VISIBLE
+                rbRab.visibility = android.view.View.VISIBLE
+                complete.visibility = android.view.View.VISIBLE
+                image.visibility = android.view.View.VISIBLE
+                image.setImageResource(0)
+            }else {
+                question.visibility = android.view.View.GONE
+                choice.visibility = android.view.View.GONE
+                rbDog.visibility = android.view.View.GONE
+                rbCat.visibility = android.view.View.GONE
+                rbRab.visibility = android.view.View.GONE
+                complete.visibility = android.view.View.GONE
+                image.visibility = android.view.View.GONE
+            }
         }
-        btnSub.setOnClickListener {
-            number1 = num1.text.toString()
-            number2 = num2.text.toString()
-            result = Integer.parseInt(number1) - Integer.parseInt(number2)
-            textResult.text = "계산결과: ${result.toString()}"
-        }
-        btnMul.setOnClickListener {
-            number1 = num1.text.toString()
-            number2 = num2.text.toString()
-            result = Integer.parseInt(number1) * Integer.parseInt(number2)
-            textResult.text = "계산결과: ${result.toString()}"
-        }
-        btnDiv.setOnClickListener {
-            number1 = num1.text.toString()
-            number2 = num2.text.toString()
-            result = Integer.parseInt(number1) / Integer.parseInt(number2)
-            textResult.text = "계산결과: ${result.toString()}"
+
+        complete.setOnClickListener {
+            when(choice.checkedRadioButtonId){
+                R.id.rb1 -> image.setImageResource(R.drawable.dog)
+                R.id.rb2 -> image.setImageResource(R.drawable.cat)
+                R.id.rb3 -> image.setImageResource(R.drawable.rabbit)
+                else -> Toast.makeText(applicationContext,"선택 먼저 하기",Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }
