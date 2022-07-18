@@ -6,6 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <Button
+        android:text="버튼 1"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"/>
+
+    <Button
+        android:text="버튼 2"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"/>
+
+    <Button
+        android:text="버튼 3"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"/>
 
 
 </LinearLayout>
