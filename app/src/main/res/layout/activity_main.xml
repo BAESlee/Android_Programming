@@ -1,45 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
-
-
-    <TextView
-        android:id="@+id/txtvi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="전화번호"
-        android:layout_alignParentTop="true"
-        android:layout_marginRight="10dp"
-        />
-
-    <EditText
-        android:id="@+id/edit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="000-0000-0000"
-        android:layout_alignBaseline="@id/txtvi"
-        android:layout_toRightOf="@id/txtvi"/>
+    android:id="@+id/layout">
+   <TextView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="오른쪽 위 메뉴 버튼 이용"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="입력"
-        android:layout_toLeftOf="@+id/btn2"
-        android:layout_alignBaseline="@+id/btn2"
-        android:layout_marginRight="10dp"/>
+        android:id="@+id/btn"
+        android:text="버튼"
+        android:layout_gravity="center"/>
 
-    <Button
-        android:id="@+id/btn2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="출력"
-        android:layout_below="@+id/edit"
-        android:layout_alignRight="@+id/edit"
-        />
-
-</RelativeLayout>
+</LinearLayout>
