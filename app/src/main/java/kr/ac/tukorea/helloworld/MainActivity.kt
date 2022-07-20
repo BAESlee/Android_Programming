@@ -10,9 +10,9 @@ import android.view.View
 import android.widget.*
 
 class MainActivity : AppCompatActivity() {
-
-    lateinit var baseLayout : LinearLayout
-    lateinit var button1 : Button
+    lateinit var image : ImageView
+    lateinit var edit : EditText
+    var angle : Float = 0f
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         super.onCreateOptionsMenu(menu)
         var mInflater = menuInflater
@@ -22,24 +22,21 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId){
-            R.id.red -> {
-                baseLayout.setBackgroundColor(Color.RED)
-                return true
-            }
-            R.id.green -> {
-                baseLayout.setBackgroundColor(Color.GREEN)
-                return true
-            }
-            R.id.blue -> {
-                baseLayout.setBackgroundColor(Color.BLUE)
-                return true
-            }
             R.id.rotate -> {
-                button1.rotation += 45f
+                angle = edit.text.toString().toFloat()
+                image.rotation = angle
                 return true
             }
-            R.id.size -> {
-                button1.scaleX += 2f
+            R.id.item1 -> {
+                image.setImageResource(R.drawable.dog)
+                return true
+            }
+            R.id.item2 -> {
+                image.setImageResource(R.drawable.cat)
+                return true
+            }
+            R.id.item3 -> {
+                image.setImageResource(R.drawable.rabbit)
                 return true
             }
         }
@@ -49,13 +46,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        title = "배경 바꾸기"
-        baseLayout = findViewById<LinearLayout>(R.id.layout)
-        button1 = findViewById<Button>(R.id.btn)
-
-        button1.setOnClickListener {
-            button1.rotation = 0f
-            button1.scaleX = 1f
-        }
+        title = "제주"
+        image = findViewById<ImageView>(R.id.image)
+        edit = findViewById<EditText>(R.id.edit)
     }
 }

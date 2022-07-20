@@ -2,27 +2,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/red"
-        android:title="빨강배경">
+        android:id="@+id/rotate"
+        android:title="그림 회전">
     </item>
-    <item
-        android:id="@+id/green"
-        android:title="초록배경">
-    </item>
-    <item
-        android:id="@+id/blue"
-        android:title="파랑배경">
-    </item>
-    <item android:title="버튼 변경">
-        <menu>
-            <item
-                android:id="@+id/rotate"
-                android:title="회전"/>
-            <item
-                android:id="@+id/size"
-                android:title="확대"
-                />
-        </menu>
-    </item>
-
+    <group
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/item1"
+            android:title="커플">
+        </item>
+        <item
+            android:id="@+id/item2"
+            android:title="솔로">
+        </item>
+        <item
+            android:id="@+id/item3"
+            android:title="마법사">
+        </item>
+    </group>
 </menu>
