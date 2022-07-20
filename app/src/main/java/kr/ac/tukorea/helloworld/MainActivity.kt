@@ -12,7 +12,7 @@ import android.widget.*
 class MainActivity : AppCompatActivity() {
     lateinit var image : ImageView
     lateinit var edit : EditText
-    var angle : Float = 0f
+    var angle : Float? = 0f
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         super.onCreateOptionsMenu(menu)
         var mInflater = menuInflater
@@ -23,8 +23,11 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId){
             R.id.rotate -> {
-                angle = edit.text.toString().toFloat()
-                image.rotation = angle
+                angle = edit.text.toString().toFloatOrNull()
+                if (angle == null){
+                    angle = 0f
+                }
+                image.rotation = angle!!
                 return true
             }
             R.id.item1 -> {
