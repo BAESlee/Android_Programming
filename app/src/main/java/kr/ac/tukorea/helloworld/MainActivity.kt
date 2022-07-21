@@ -28,18 +28,22 @@ class MainActivity : AppCompatActivity() {
                     angle = 0f
                 }
                 image.rotation = angle!!
+
                 return true
             }
             R.id.item1 -> {
                 image.setImageResource(R.drawable.dog)
+                item.isChecked = true
                 return true
             }
             R.id.item2 -> {
                 image.setImageResource(R.drawable.cat)
+                item.isChecked = true
                 return true
             }
             R.id.item3 -> {
                 image.setImageResource(R.drawable.rabbit)
+                item.isChecked = true
                 return true
             }
         }
